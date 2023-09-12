@@ -2,7 +2,6 @@ module.exports = {
   roots: ["<rootDir>/src", "<rootDir>/test"],
   testPathIgnorePatterns: [
     "/node_modules/",
-    "/infrastructure/",
     "/dist/"
   ],
   collectCoverageFrom: [
