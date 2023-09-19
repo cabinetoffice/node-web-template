@@ -2,7 +2,7 @@
   "name": "poc_node_protoype",
   "version": "1.0.0",
   "description": "POC Node Prototype",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
     "build": "tsc",
     "start": "node dist/app.js",
@@ -31,6 +31,8 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@types/cookie-parser": "^1.4.4",
+    "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
     "helmet": "^7.0.0"
   }
