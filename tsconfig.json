@@ -32,7 +32,7 @@
       "pretty": true /* Stylize errors and messages using color and context, this is on by default */
     },
     "include": [
-      "/src/**/*"
+      "src/**/*"
     ],
     "exclude": [
       "node_modules"
