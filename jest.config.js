@@ -11,6 +11,6 @@ module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
   verbose: true,
-  testMatch: ["**/test/**/*.spec.[jt]s"]
-  // globalSetup: "./test/setup.ts"
+  testMatch: ["**/test/**/*.spec.[jt]s"],
+  globalSetup: "./test/setup.ts"
 };
