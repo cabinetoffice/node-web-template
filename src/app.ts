@@ -2,11 +2,7 @@ import express from "express";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 
-import * as config from "./config";
-
 const app = express();
-
-app.set("port", config.PORT);
 
 app.use(helmet());
 app.disable("x-powered-by");
