@@ -2,10 +2,10 @@
   "name": "poc_node_protoype",
   "version": "1.0.0",
   "description": "POC Node Prototype",
-  "main": "dist/app.js",
+  "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/app.js",
+    "start": "node dist/server.js",
     "test": "jest",
     "coverage": "jest --coverage",
     "lint": "eslint src",
