@@ -15,10 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.get("/", function(req, res) {
+app.use("/", function(req, res) {
     res.send("Hello World");
 });
 
-app.listen(config.PORT, () => {
-    console.log(`Server is running http://localhost:${config.PORT}`);
-});
+export default app;
