@@ -1,13 +1,11 @@
 import { Router } from "express";
+import { get, post } from "../controllers/index.controller";
 
 const router = Router();
 
-router.get("/", function (req, res) {
-    res.send("get request test");
-});
+router.get("/", get);
 
-router.post("/", function (req, res) {
-    res.send("post request test");
-});
+router.post("/", post);
 
 export default router;
+
