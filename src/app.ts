@@ -3,6 +3,7 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 
 import router from "./routes";
+import { errorHandler } from "./controllers/error.controller";
 
 const app = express();
 
@@ -14,5 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use("/", router);
+app.use(errorHandler);
 
 export default app;
