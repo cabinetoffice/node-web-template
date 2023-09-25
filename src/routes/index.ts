@@ -1,11 +1,12 @@
 import { Router } from "express";
 import { get, post } from "../controllers/index.controller";
+import { myLogger } from "../middleware/logger";
 
 const router = Router();
 
-router.get("/", get);
+router.get("/", myLogger, get);
 
-router.post("/", post);
+router.post("/", myLogger, post);
 
 export default router;
 
