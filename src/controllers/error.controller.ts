@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-export const errorNotFound = (err: Error, req: Request, res: Response, next: NextFunction) => {
+export const errorNotFound = (req: Request, res: Response, next: NextFunction) => {
     res.status(404);
     next(new Error(`Not found - ${req.originalUrl}`));
 };
