@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/", router);
+app.use("/info", router);
 
 app.use(errorNotFound);
 app.use(errorHandler);
