@@ -1,5 +1,4 @@
 import express from "express";
-import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import * as path from "path";
 import * as nunjucks from "nunjucks";
@@ -19,19 +18,6 @@ const nunjucksEnv = nunjucks.configure([
     express: app,
 });
 nunjucksEnv.addGlobal("CDN_HOST", config.CDN_HOST);
-nunjucksEnv.addGlobal("JQUERY_URL", config.JQUERY_URL);
-
-app.use(
-    helmet({
-        contentSecurityPolicy: {
-            useDefaults: true,
-            directives: {
-                "script-src": ["'self'", "'unsafe-inline'", `${config.CDN_HOST}`, `${config.JQUERY_URL}`],
-                "img-src": ["'self'", `${config.CDN_HOST}`],
-            },
-        },
-    })
-);
 
 app.disable("x-powered-by");
 app.use(express.json());
