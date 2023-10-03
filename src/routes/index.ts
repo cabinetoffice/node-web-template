@@ -4,7 +4,7 @@ import { logger } from "../middleware/logger.middleware";
 
 const router = Router();
 
-router.get("/", logger, get);
+router.get("/info", logger, get);
 
 router.post("/", logger, post);
 
