@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
+import * as config from "../config";
 
-export const errorNotFound = (req: Request, res: Response, next: NextFunction) => {
-    res.status(404);
-    next(new Error(`Not found - ${req.originalUrl}`));
+export const errorNotFound = (req: Request, res: Response) => {
+    return res.status(404).render(config.NOT_FOUND);
 };
 
 export const errorHandler = (err: Error, req: Request, res: Response, _next: NextFunction) => {

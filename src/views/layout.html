@@ -17,16 +17,11 @@
 {% block head %}
 
   <!--[if !IE 8]><!-->
-  <link rel="stylesheet" type="text/css" media="all" href="//{{CDN_HOST}}/stylesheets/govuk-frontend/v3.11.0/govuk-frontend-3.11.0.min.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="//{{CDN_HOST}}/stylesheets/govuk-frontend/v3.11.0/govuk-frontend-3.11.0.min.css"/>
   <!--<![endif]-->
 
-  <link rel="SHORTCUT ICON" href="//{{CDN_HOST}}/images/favicon.ico" />
-  <link rel="icon" href="//{{CDN_HOST}}/images/favicon.ico" type="image/x-icon" />
-
-  <script src="//{{JQUERY_URL}}/jquery-3.7.1.js"
-  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-  crossorigin="anonymous">
-  </script>
+  <link rel="SHORTCUT ICON" href="//{{CDN_HOST}}/images/favicon.ico"/>
+  <link rel="icon" href="//{{CDN_HOST}}/images/favicon.ico" type="image/x-icon"/>
 
 {% endblock %}
 
@@ -34,13 +29,30 @@
   {{ govukHeader({
     homepageUrl: "https://www.gov.uk",
     serviceName: "Node Prototype",
-    serviceUrl: "/node-proto",
+    serviceUrl: "#",
     containerClasses: "govuk-width-container"
   }) }}
 {% endblock %}
 
 {% block footer %}
-    {{ govukFooter({}) }} 
+    {{ govukFooter({
+      meta: {
+        items: [
+          {
+            href: "#",
+            text: "Placeholder"
+          },
+          {
+            href: "#",
+            text: "Placeholder"
+          },
+          {
+            href: "#",
+            text: "Placeholder"
+          }
+        ]
+      }
+    }) }} 
 {% endblock %}
 
 {% block bodyEnd %}
