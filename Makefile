@@ -1,9 +1,11 @@
 .PHONY: build lint test
 
-NODE_VERSION := v18.17.1
+NODE_VERSION_SUPPORTED := >=18.0.0
+NODE_VERSION=$(shell node -v)
 
 build:
-	$(info Node version: $(NODE_VERSION))
+	$(info Node version supported: $(NODE_VERSION_SUPPORTED))
+	$(info Node version installed: $(NODE_VERSION))
 	npm ci --silent
 	npm run build
 
