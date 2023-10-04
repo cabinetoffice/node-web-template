@@ -1,7 +1,7 @@
 import { describe, expect, beforeEach, test, jest } from '@jest/globals';
 import { Request, Response, NextFunction } from 'express';
 
-import { logger } from "../../../src/middleware/logger.middleware"
+import { logger } from "../../../src/middleware/logger.middleware";
 import { GET_REQUEST_MOCK } from '../../mock/data';
 
 const spyConsoleLog = jest.spyOn(console, "log");
