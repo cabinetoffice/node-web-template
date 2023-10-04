@@ -1,24 +1,29 @@
-jest.mock("../../../src/middleware/logger.middleware");
+jest.mock('../../../src/middleware/logger.middleware');
 
-import { NextFunction } from 'express';
-import { describe, expect, test } from '@jest/globals';
+import { Request, Response, NextFunction } from 'express';
+import { jest, beforeEach, describe, expect, test } from '@jest/globals';
 import request from 'supertest';
 import app from '../../../src/app';
-import { logger } from "../../../src/middleware/logger.middleware";
+import { logger } from '../../../src/middleware/logger.middleware';
+import * as config from '../../../src/config';
+import { MOCK_GET_INFO_RESPONSE, MOCK_POST_INFO_RESPONSE } from '../../mock/text.mock';
+
+const mockedLogger = logger as jest.Mock<typeof logger>;
+mockedLogger.mockImplementation((req: Request, res: Response, next: NextFunction) => next());
 
 describe('Endpoint integration tests', () => {
 
     beforeEach(() => {
-        jest.resetAllMocks();
-        (logger as jest.Mock).mockImplementation((_req, _res, next: NextFunction) => next());
+        jest.clearAllMocks();
     });
 
     describe('GET tests', () => {
         test("renders the info page", async () => {
-            const res = await request(app).get('/info');
+            const res = await request(app).get(config.LANDING_URL);
 
             expect(res.status).toEqual(200);
-            expect(logger).toHaveBeenCalledTimes(1);
+            expect(res.text).toContain(MOCK_GET_INFO_RESPONSE);
+            expect(mockedLogger).toHaveBeenCalledTimes(1);
         });
     });
     describe('POST tests', () => {
@@ -26,7 +31,8 @@ describe('Endpoint integration tests', () => {
             const res = await request(app).post('/');
 
             expect(res.status).toEqual(200);
-            expect(logger).toHaveBeenCalledTimes(1);
+            expect(res.text).toContain(MOCK_POST_INFO_RESPONSE);
+            expect(mockedLogger).toHaveBeenCalledTimes(1);
         });
     });
 });
