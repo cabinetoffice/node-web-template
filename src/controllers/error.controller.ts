@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
+
 import * as config from "../config";
-import { ErrorLogMessage } from "model";
+import { ErrorLogMessage } from "../model";
 
 export const errorNotFound = (req: Request, res: Response) => {
     return res.status(404).render(config.NOT_FOUND);
