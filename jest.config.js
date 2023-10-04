@@ -12,5 +12,8 @@ module.exports = {
   testEnvironment: "node",
   verbose: true,
   testMatch: ["**/test/**/*.spec.[jt]s"],
-  globalSetup: "./test/setup.ts"
+  globalSetup: "./test/setup.ts",
+  transform: {
+    '^.+\\.ts?$': ['ts-jest', { diagnostics: false }],
+  },
 };
