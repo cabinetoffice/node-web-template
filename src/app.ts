@@ -1,30 +1,32 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import * as path from "path";
-import * as nunjucks from "nunjucks";
+import path from "path";
 
 import router from "./routes";
-import * as config from "./config";
+import { configureNunjucks } from "./config/nunjucks";
+
 import { errorHandler, errorNotFound } from "./controllers/error.controller";
+
+import { setHelmet } from "./middleware/helmet.middleware";
+import { setNonce } from "./middleware/nonce.middleware";
+import { setCors } from "./middleware/cors.middleware";
 
 const app = express();
 
-const nunjucksEnv = nunjucks.configure([
-    "src/views",
-    "node_modules/govuk-frontend",
-    "node_modules/govuk-frontend/components"
-], {
-    autoescape: true,
-    express: app,
-});
-nunjucksEnv.addGlobal("CDN_HOST", config.CDN_HOST);
-
 app.disable("x-powered-by");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.set("views", path.join(__dirname, "views"));
+app.use(setNonce);
+app.use(setHelmet);
+app.use(setCors);
+
+const viewPath = path.join(__dirname, 'views');
+configureNunjucks(app, viewPath);
+
+app.set("views", viewPath);
 app.set("view engine", "html");
 
 app.use("/", router);
