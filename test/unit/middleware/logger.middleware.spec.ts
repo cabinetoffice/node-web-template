@@ -6,9 +6,9 @@ import { GET_REQUEST_MOCK } from '../../mock/data';
 
 const spyConsoleLog = jest.spyOn(console, "log");
 
-const req = GET_REQUEST_MOCK as Request;
-const res = {} as Response;
-const next = jest.fn() as NextFunction;
+const mockReq = GET_REQUEST_MOCK as Request;
+const mockRes = {} as Response;
+const mockNext = jest.fn() as NextFunction;
 
 describe("Logger Middleware test suites", () => {
 
@@ -22,10 +22,10 @@ describe("Logger Middleware test suites", () => {
 
     test("Should log the method and route path", () => {
 
-        logger(req, res, next);
+        logger(mockReq, mockRes, mockNext);
 
         expect(spyConsoleLog).toHaveBeenCalledTimes(1);
-        expect(spyConsoleLog).toHaveBeenCalledWith(`${req.method} ${req.route.path}`);
-        expect(next).toBeCalledTimes(1);
+        expect(spyConsoleLog).toHaveBeenCalledWith(`${mockReq.method} ${mockReq.route.path}`);
+        expect(mockNext).toBeCalledTimes(1);
     });
 });

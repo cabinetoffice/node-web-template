@@ -4,8 +4,8 @@ import { Request, Response } from 'express';
 import { get, post } from '../../../src/controllers/index.controller';
 import * as config from '../../../src/config';
 
-const req = {} as Request;
-const res = {
+const mockReq = {} as Request;
+const mockRes = {
     render: jest.fn() as any,
     send: jest.fn() as any
 } as Response;
@@ -18,18 +18,18 @@ describe("Index controller tests", () => {
 
     test("should render the landing", async () => {
 
-        get(req, res);
+        get(mockReq, mockRes);
 
-        expect(res.render).toBeCalledTimes(1);
-        expect(res.render).toHaveBeenCalledWith(config.LANDING_PAGE);
+        expect(mockRes.render).toBeCalledTimes(1);
+        expect(mockRes.render).toHaveBeenCalledWith(config.LANDING_PAGE);
     });
 
     test("sends a post request", async () => {
 
-        post(req, res);
+        post(mockReq, mockRes);
 
-        expect(res.send).toBeCalledTimes(1);
-        expect(res.send).toHaveBeenCalledWith("post request test");
+        expect(mockRes.send).toBeCalledTimes(1);
+        expect(mockRes.send).toHaveBeenCalledWith("post request test");
     });
 
 });
