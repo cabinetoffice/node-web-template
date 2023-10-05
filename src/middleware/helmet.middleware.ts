@@ -3,7 +3,7 @@ import helmet from "helmet";
 
 import * as config from "../config";
 
-export const setHelmet = function (_req: Request, _res: Response, next: NextFunction) {
+export const setHelmet = (_req: Request, _res: Response, next: NextFunction) => {
     helmet({
         contentSecurityPolicy: {
             useDefaults: true,
