@@ -1,4 +1,4 @@
-import { describe, expect, beforeEach, test, jest } from '@jest/globals';
+import { describe, expect, beforeEach, test, jest, afterEach } from '@jest/globals';
 import { Request, Response, NextFunction } from 'express';
 
 import { logger } from "../../../src/middleware/logger.middleware";
@@ -25,7 +25,7 @@ describe("Logger Middleware test suites", () => {
         logger(mockReq, mockRes, mockNext);
 
         expect(spyConsoleLog).toHaveBeenCalledTimes(1);
-        expect(spyConsoleLog).toHaveBeenCalledWith(`${mockReq.method} ${mockReq.route.path}`);
-        expect(mockNext).toBeCalledTimes(1);
+        expect(spyConsoleLog).toHaveBeenCalledWith(`${req.method} ${req.path}`);
+        expect(next).toBeCalledTimes(1);
     });
 });

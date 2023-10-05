@@ -1,12 +1,13 @@
 import { Router } from "express";
-import { get, post } from "../controllers/index.controller";
+
 import { logger } from "../middleware/logger.middleware";
+import healthcheckRouter from "./healthcheck";
+import infoRouter from "./info";
 
 const router = Router();
 
-router.get("/info", logger, get);
-
-router.post("/", logger, post);
+router.use(logger);
+router.use(healthcheckRouter);
+router.use(infoRouter);
 
 export default router;
-
