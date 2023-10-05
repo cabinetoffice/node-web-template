@@ -4,6 +4,7 @@ import { Request, Response, NextFunction } from 'express';
 import { errorNotFound, errorHandler } from '../../../src/controller/error.controller';
 import * as config from '../../../src/config';
 import { ErrorLogMessage } from '../../../src/model';
+import { MOCK_ERROR } from '../../mock/data'
 
 const spyConsoleLog = jest.spyOn(console, "log");
 
@@ -17,17 +18,16 @@ const mockResponse = () => {
   return res;
 };
 
-const mockError = {
-  message: 'Error message'
-} as Error;
-
 const next = jest.fn() as NextFunction;
 
 describe ("Error controller tests", () => {
 
     beforeEach(() => {
-      spyConsoleLog.mockImplementation(() => {/**/});
-      jest.clearAllMocks();
+        spyConsoleLog.mockImplementation(() => {/**/});
+    });
+
+    afterEach(() => {
+      jest.resetAllMocks();
     });
 
     describe("Test page not found", () => {
@@ -53,15 +53,15 @@ describe ("Error controller tests", () => {
 
         const res = mockResponse();
         res.statusCode = 500;
-        const errorLogMessage: ErrorLogMessage = { code: 500, message: 'Error message'};
+        const errorLogMessage: ErrorLogMessage = { code: 500, message: MOCK_ERROR.message};
 
-        errorHandler(mockError, req, res, next);
+        errorHandler(MOCK_ERROR, req, res, next);
 
         expect(spyConsoleLog).toHaveBeenCalledTimes(1);
         expect(spyConsoleLog).toHaveBeenCalledWith(errorLogMessage);
 
         expect(res.send).toBeCalledTimes(1);
-        expect(res.send).toBeCalledWith(mockError.message);
+        expect(res.send).toBeCalledWith(MOCK_ERROR.message);
 
         expect(res.status).toBeCalledTimes(1);
         expect(res.status).toBeCalledWith(res.statusCode);
@@ -72,15 +72,15 @@ describe ("Error controller tests", () => {
 
         const res = mockResponse();
         res.statusCode = 418;
-        const errorLogMessage: ErrorLogMessage = { code: 418, message: 'Error message'};
+        const errorLogMessage: ErrorLogMessage = { code: 418, message: MOCK_ERROR.message};
 
-        errorHandler(mockError, req, res, next);
+        errorHandler(MOCK_ERROR, req, res, next);
 
         expect(spyConsoleLog).toHaveBeenCalledTimes(1);
         expect(spyConsoleLog).toHaveBeenCalledWith(errorLogMessage);
 
         expect(res.send).toBeCalledTimes(1);
-        expect(res.send).toBeCalledWith(mockError.message);
+        expect(res.send).toBeCalledWith(MOCK_ERROR.message);
 
         expect(res.status).toBeCalledTimes(1);
         expect(res.status).toBeCalledWith(res.statusCode);
@@ -90,10 +90,10 @@ describe ("Error controller tests", () => {
     test("should log alternate error message", async () => {
 
       const res = mockResponse();
-      mockError.message = '';
+      MOCK_ERROR.message = '';
       const errorLogMessage: ErrorLogMessage = { code: 500, message: "An error has occured. Re-routing to the error screen"};
 
-      errorHandler(mockError, req, res, next );
+      errorHandler(MOCK_ERROR, req, res, next );
 
       expect(spyConsoleLog).toHaveBeenCalledTimes(1);
       expect(spyConsoleLog).toHaveBeenCalledWith(errorLogMessage);

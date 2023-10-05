@@ -7,6 +7,10 @@ export const MOCK_CORS_VALUE = {
     credentials: true
 };
 
+export const MOCK_ERROR = {
+    message: 'Error message'
+  } as Error;
+
 export const MOCK_HELMET_VALUE = {
     contentSecurityPolicy: {
         useDefaults: true,
