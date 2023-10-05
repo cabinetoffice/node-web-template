@@ -1,4 +1,4 @@
-import { describe, expect, test, jest } from '@jest/globals';
+import { describe, expect, afterEach, test, jest } from '@jest/globals';
 import { Request, Response } from 'express';
 
 import { get, post } from '../../../src/controller/info.controller';
