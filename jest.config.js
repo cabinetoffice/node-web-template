@@ -7,7 +7,9 @@ module.exports = {
   collectCoverageFrom: [
     "./src/**/*.ts"
   ],
-  coveragePathIgnorePatterns: [],
+  coveragePathIgnorePatterns: [
+    "/src/server.ts"
+  ],
   preset: "ts-jest",
   testEnvironment: "node",
   verbose: true,
