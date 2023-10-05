@@ -12,7 +12,7 @@ import { MOCK_GET_INFO_RESPONSE, MOCK_POST_INFO_RESPONSE } from '../../mock/text
 const mockedLogger = logger as jest.Mock<typeof logger>;
 mockedLogger.mockImplementation((req: Request, res: Response, next: NextFunction) => next());
 
-describe('Endpoint integration tests', () => {
+describe('Info endpoint integration tests', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
@@ -20,7 +20,7 @@ describe('Endpoint integration tests', () => {
 
     describe('GET tests', () => {
         test("renders the info page", async () => {
-            const res = await request(app).get(config.LANDING_URL);
+            const res = await request(app).get(config.INFO_URL);
 
             expect(res.status).toEqual(200);
             expect(res.text).toContain(MOCK_GET_INFO_RESPONSE);
@@ -29,7 +29,7 @@ describe('Endpoint integration tests', () => {
     });
     describe('POST tests', () => {
         test("Sends post request test", async () => {
-            const res = await request(app).post(config.LANDING_URL);
+            const res = await request(app).post(config.INFO_URL);
 
             expect(res.status).toEqual(200);
             expect(res.text).toContain(MOCK_POST_INFO_RESPONSE);
