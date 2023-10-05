@@ -2,10 +2,10 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import path from "path";
 
-import router from "./routes";
+import router from "./routes/index";
 import { configureNunjucks } from "./config/nunjucks";
 
-import { errorHandler, errorNotFound } from "./controllers/error.controller";
+import { errorHandler, errorNotFound } from "./controller/error.controller";
 
 import { setHelmet } from "./middleware/helmet.middleware";
 import { setNonce } from "./middleware/nonce.middleware";
