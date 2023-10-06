@@ -9,3 +9,12 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=development
+  prod:
+    container_name: prod-node-prototype
+    build:
+      context: .
+      dockerfile: ./docker/prod/Dockerfile
+    ports:
+      - "3000:3000"
+    environment: 
+      - NODE_ENV=production
