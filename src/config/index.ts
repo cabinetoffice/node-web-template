@@ -6,7 +6,8 @@ export const SERVICE_NAME = "Node Prototype";
 
 // Template
 export const LANDING_PAGE = "info";
-export const NOT_FOUND = "error";
+export const NOT_FOUND = "page-not-found";
+export const ERROR_PAGE = "error";
 
 // Routing paths
 export const LANDING_URL = "/info";
