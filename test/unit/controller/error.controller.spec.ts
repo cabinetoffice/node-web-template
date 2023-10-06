@@ -32,7 +32,7 @@ describe ("Error controller tests", () => {
 
     describe("Test page not found", () => {
 
-      test("should render the error page", async () => {
+      test("should render the not found page", async () => {
 
         const res = mockResponse();
 
@@ -49,7 +49,7 @@ describe ("Error controller tests", () => {
 
     describe("Error handler tests", () => {
 
-      test("should call console.log, res.status and res.send with correct values", async () => {
+      test("should call console.log, res.status and render the error page", async () => {
 
         const res = mockResponse();
         res.statusCode = 500;
@@ -60,8 +60,8 @@ describe ("Error controller tests", () => {
         expect(spyConsoleLog).toHaveBeenCalledTimes(1);
         expect(spyConsoleLog).toHaveBeenCalledWith(errorLogMessage);
 
-        expect(res.send).toBeCalledTimes(1);
-        expect(res.send).toBeCalledWith(MOCK_ERROR.message);
+        expect(res.render).toBeCalledTimes(1);
+        expect(res.render).toBeCalledWith(config.ERROR_PAGE);
 
         expect(res.status).toBeCalledTimes(1);
         expect(res.status).toBeCalledWith(res.statusCode);
@@ -79,8 +79,8 @@ describe ("Error controller tests", () => {
         expect(spyConsoleLog).toHaveBeenCalledTimes(1);
         expect(spyConsoleLog).toHaveBeenCalledWith(errorLogMessage);
 
-        expect(res.send).toBeCalledTimes(1);
-        expect(res.send).toBeCalledWith(MOCK_ERROR.message);
+        expect(res.render).toBeCalledTimes(1);
+        expect(res.render).toBeCalledWith(config.ERROR_PAGE);
 
         expect(res.status).toBeCalledTimes(1);
         expect(res.status).toBeCalledWith(res.statusCode);
@@ -98,8 +98,8 @@ describe ("Error controller tests", () => {
       expect(spyConsoleLog).toHaveBeenCalledTimes(1);
       expect(spyConsoleLog).toHaveBeenCalledWith(errorLogMessage);
 
-      expect(res.send).toBeCalledTimes(1);
-      expect(res.send).toBeCalledWith(errorLogMessage.message);
+      expect(res.render).toBeCalledTimes(1);
+      expect(res.render).toBeCalledWith(config.ERROR_PAGE);
 
     });
   });
