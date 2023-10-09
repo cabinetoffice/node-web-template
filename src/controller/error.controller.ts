@@ -13,5 +13,5 @@ export const errorHandler = (err: Error, _req: Request, res: Response, _next: Ne
     const error: ErrorLogMessage = { code: statusCode, message: errorMessage };
 
     console.log(error);
-    res.status(statusCode).send(errorMessage);
+    res.status(statusCode).render(config.ERROR_PAGE);
 };
