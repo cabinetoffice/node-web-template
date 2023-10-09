@@ -1,20 +1,11 @@
 version: '3'
 services:
-  dev:
-    container_name: dev-node-prototype
+  web:
+    container_name: web-node-prototype
     build:
       context: .
-      dockerfile: ./docker/${NODE_ENV}/Dockerfile
+      dockerfile: ./infrastructure/docker/${NODE_ENV}/Dockerfile
     ports:
       - "${PORT}:3000"
     environment:
-      - NODE_ENV=${NODE_ENV}
-  prod:
-    container_name: prod-node-prototype
-    build:
-      context: .
-      dockerfile: ./docker/${NODE_ENV}/Dockerfile
-    ports:
-      - "${PORT}:3000"
-    environment: 
       - NODE_ENV=${NODE_ENV}
