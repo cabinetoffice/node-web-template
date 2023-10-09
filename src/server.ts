@@ -4,10 +4,10 @@
  * Module dependencies.
  */
 
-import * as http from "http";
 import * as config from "./config";
-
+import * as http from "http";
 import app from "./app";
+import { createSslServer } from "./utils/createSslServer";
 
 /**
  * Get port from environment and store in Express.
@@ -19,7 +19,7 @@ app.set("port", config.PORT);
  * Create HTTP server.
  */
 
-const server = http.createServer(app);
+const server = config.NODE_SSL_ENABLED === "true" ? createSslServer(app) : http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.

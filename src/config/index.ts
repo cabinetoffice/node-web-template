@@ -1,6 +1,14 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 export const PORT = process.env["PORT"] || "3000";
 export const BASE_URL = process.env["BASE_URL"] || `http://localhost:${PORT}`;
 export const CDN_HOST = process.env["CDN_HOST"] || "d6nh3dxv55e16.cloudfront.net";
+export const NODE_SSL_ENABLED = process.env["NODE_SSL_ENABLED"];
+
+export const PATH_SSL_PRIVATE_KEY = process.env["PATH_SSL_PRIVATE_KEY"];
+export const PATH_SSL_CERTIFICATE = process.env["PATH_SSL_CERTIFICATE"];
 
 export const SERVICE_NAME = "Node Prototype";
 
