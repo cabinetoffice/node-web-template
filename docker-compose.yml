@@ -4,17 +4,17 @@ services:
     container_name: dev-node-prototype
     build:
       context: .
-      dockerfile: ./docker/dev/Dockerfile
+      dockerfile: ./docker/${NODE_ENV}/Dockerfile
     ports:
-      - "3000:3000"
+      - "${PORT}:3000"
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=${NODE_ENV}
   prod:
     container_name: prod-node-prototype
     build:
       context: .
-      dockerfile: ./docker/prod/Dockerfile
+      dockerfile: ./docker/${NODE_ENV}/Dockerfile
     ports:
-      - "3000:3000"
+      - "${PORT}:3000"
     environment: 
-      - NODE_ENV=production
+      - NODE_ENV=${NODE_ENV}
