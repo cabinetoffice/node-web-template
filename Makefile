@@ -1,6 +1,6 @@
 .PHONY: clean build lint test coverage
 
-NODE_VERSION_SUPPORTED := >=18.0.0
+NODE_VERSION_SUPPORTED := >=20.0.0
 NODE_VERSION=$(shell node -v)
 
 clean:
