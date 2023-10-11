@@ -111,3 +111,7 @@ dist
 **/.DS_Store
 __*
 **.diff
+
+# Keys and certs
+*.key
+*.cert
