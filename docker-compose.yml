@@ -9,3 +9,8 @@ services:
       - "${PORT}:3000"
     environment:
       - NODE_ENV=${NODE_ENV}
+      - PATH_SSL_PRIVATE_KEY=${PATH_SSL_PRIVATE_KEY}
+      - PATH_SSL_CERTIFICATE=${PATH_SSL_CERTIFICATE}
+      - CDN_HOST=${CDN_HOST}
+      - NODE_SSL_ENABLED=${NODE_SSL_ENABLED}
+      - BASE_URL=${BASE_URL}
