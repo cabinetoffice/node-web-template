@@ -13,7 +13,7 @@ export const onError = (error: any ) => {
     if (errorCodes.has(code)) {
         console.error(`Pipe ${config.PORT} ${errorCodes.get(code)}`);
         process.exit(1);
+    } else {
+        throw error;
     }
-
-    throw error;
 };
