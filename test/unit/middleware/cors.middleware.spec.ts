@@ -4,7 +4,7 @@ import { describe, expect, test, jest, afterEach } from '@jest/globals';
 import { Request, Response, NextFunction } from 'express';
 import cors from "cors";
 
-import { setCors } from "../../../src/middleware/cors.middleware"
+import { setCors } from "../../../src/middleware/cors.middleware";
 import { MOCK_CORS_VALUE } from '../../mock/data';
 
 describe("CORS Middleware test suites", () => {

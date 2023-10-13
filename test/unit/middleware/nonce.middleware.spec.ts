@@ -1,7 +1,7 @@
 import { describe, expect, test, jest, afterEach } from '@jest/globals';
 import { Request, Response, NextFunction } from 'express';
 
-import { setNonce } from "../../../src/middleware/nonce.middleware"
+import { setNonce } from "../../../src/middleware/nonce.middleware";
 
 describe("Nonce Middleware test suites", () => {
 

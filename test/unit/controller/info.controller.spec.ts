@@ -14,14 +14,13 @@ const mockResponse = () => {
     return res;
 };
 
-
 describe("Info controller tests", () => {
 
     afterEach (() => {
         jest.resetAllMocks();
     });
 
-    test("should render the landing", async () => {
+    test("should render the landing", () => {
         const res = mockResponse();
 
         get(req, res);
@@ -30,7 +29,7 @@ describe("Info controller tests", () => {
         expect(res.render).toHaveBeenCalledWith(config.LANDING_PAGE);
     });
 
-    test("sends a post request", async () => {
+    test("sends a post request", () => {
 
         const res = mockResponse();
 
