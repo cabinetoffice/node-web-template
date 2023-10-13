@@ -5,14 +5,13 @@ import { onError } from '../../../src/utils/onError';
 import { MOCK_SERVER_ERROR } from '../../mock/text.mock';
 
 const spyConsoleError = jest.spyOn(console, "error");
-const spyConsoleProcess = jest.spyOn(process, "exit");
-const spyExit = jest.spyOn(process, 'exit');
+const spyProcessExit = jest.spyOn(process, "exit");
 
 describe ("onError util tests", () => {
 
     beforeEach(() => {
         spyConsoleError.mockImplementation(() => {/**/});
-        spyExit.mockImplementation(() => { return undefined as never; });
+        spyProcessExit.mockImplementation(() => { return undefined as never; });
     });
 
     afterEach(() => {
@@ -28,8 +27,8 @@ describe ("onError util tests", () => {
         expect(spyConsoleError).toBeCalledTimes(1);
         expect(spyConsoleError).toBeCalledWith(MOCK_SERVER_ERROR);
 
-        expect(spyConsoleProcess).toBeCalledTimes(1);
-        expect(spyExit).toBeCalledWith(1);
+        expect(spyProcessExit).toBeCalledTimes(1);
+        expect(spyProcessExit).toBeCalledWith(1);
 
     });
 

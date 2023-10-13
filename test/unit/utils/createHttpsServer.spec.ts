@@ -1,8 +1,9 @@
-import { createHttpsServer } from '../../../src/utils/createHttpsServer';
+import { describe, afterEach, expect, test, jest } from '@jest/globals';
+
 import * as https from 'https';
 import { Express } from 'express';
 
-jest.mock('express');
+import { createHttpsServer } from '../../../src/utils/createHttpsServer';
 
 jest.mock('fs', () => ({
     readFileSync: jest.fn().mockReturnValue('')

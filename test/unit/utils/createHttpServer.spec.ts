@@ -1,8 +1,9 @@
-import { createHttpServer } from '../../../src/utils/createHttpServer';
+import { describe, afterEach, expect, test, jest } from '@jest/globals';
+
 import * as http from 'http';
 import { Express } from 'express';
 
-jest.mock('express');
+import { createHttpServer } from '../../../src/utils/createHttpServer';
 
 jest.mock('http', () => ({
     createServer: jest.fn()
