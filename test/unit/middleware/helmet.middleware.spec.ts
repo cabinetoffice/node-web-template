@@ -4,7 +4,7 @@ import { describe, expect, test, jest, afterEach } from '@jest/globals';
 import { Request, Response, NextFunction } from 'express';
 import helmet from "helmet";
 
-import { setHelmet } from "../../../src/middleware/helmet.middleware"
+import { setHelmet } from "../../../src/middleware/helmet.middleware";
 import { MOCK_HELMET_VALUE } from '../../mock/data';
 
 describe("Helmet Middleware test suites", () => {

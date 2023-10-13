@@ -9,7 +9,7 @@ export const MOCK_CORS_VALUE = {
 
 export const MOCK_ERROR = {
     message: 'Error message'
-  } as Error;
+} as Error;
 
 export const MOCK_HELMET_VALUE = {
     contentSecurityPolicy: {

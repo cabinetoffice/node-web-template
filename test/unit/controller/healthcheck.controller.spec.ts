@@ -1,7 +1,7 @@
 import { describe, expect, afterEach, test, jest } from '@jest/globals';
 import { Request, Response } from 'express';
 
-import { get } from "../../../src/controller/healthcheck.controller"
+import { get } from "../../../src/controller/healthcheck.controller";
 import { MOCK_OK_RESPONSE } from '../../mock/text.mock';
 
 const req = {} as Request;
