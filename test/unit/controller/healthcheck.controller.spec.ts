@@ -1,7 +1,7 @@
 import { describe, expect, afterEach, test, jest } from '@jest/globals';
 import { Request, Response } from 'express';
 
-import { get } from "../../../src/controller/healthcheck.controller";
+import { get } from '../../../src/controller/healthcheck.controller';
 import { MOCK_OK_RESPONSE } from '../../mock/text.mock';
 
 const req = {} as Request;
@@ -13,13 +13,12 @@ const mockResponse = () => {
     return res;
 };
 
-describe("Healthcheck controller test suites", () => {
-
+describe('Healthcheck controller test suites', () => {
     afterEach(() => {
         jest.resetAllMocks();
     });
 
-    test("correct value for res.status and res.send", () => {
+    test('correct value for res.status and res.send', () => {
         const res = mockResponse();
 
         get(req, res);

@@ -14,13 +14,11 @@ jest.mock('https', () => ({
 }));
 
 describe('HTTPS server test', () => {
-
     afterEach(() => {
         jest.resetAllMocks();
     });
 
     test('should return an https.Server instance', () => {
-
         const app = {} as Express;
         const options = {
             key: '',
@@ -30,6 +28,5 @@ describe('HTTPS server test', () => {
         createHttpsServer(app);
         expect(https.createServer).toBeCalled();
         expect(https.createServer).toBeCalledWith(options, app);
-
     });
 });

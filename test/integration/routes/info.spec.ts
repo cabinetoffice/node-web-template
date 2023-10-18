@@ -13,13 +13,12 @@ const mockedLogger = logger as jest.Mock<typeof logger>;
 mockedLogger.mockImplementation((req: Request, res: Response, next: NextFunction) => next());
 
 describe('Info endpoint integration tests', () => {
-
     beforeEach(() => {
         jest.clearAllMocks();
     });
 
     describe('GET tests', () => {
-        test("renders the info page", async () => {
+        test('renders the info page', async () => {
             const res = await request(app).get(config.INFO_URL);
 
             expect(res.status).toEqual(200);
@@ -28,7 +27,7 @@ describe('Info endpoint integration tests', () => {
         });
     });
     describe('POST tests', () => {
-        test("Sends post request test", async () => {
+        test('Sends post request test', async () => {
             const res = await request(app).post(config.INFO_URL);
 
             expect(res.status).toEqual(200);

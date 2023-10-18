@@ -1,7 +1,7 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-import { get, post } from "../controller/info.controller";
-import * as config from "../config";
+import { get, post } from '../controller/info.controller';
+import * as config from '../config';
 
 const infoRouter = Router();
 

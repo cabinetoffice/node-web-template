@@ -10,13 +10,11 @@ jest.mock('http', () => ({
 }));
 
 describe('HTTP server tests ', () => {
-
     afterEach(() => {
         jest.resetAllMocks();
     });
 
     test('should return an http.Server instance', () => {
-
         const app = {} as Express;
         createHttpServer(app);
         expect(http.createServer).toBeCalled();

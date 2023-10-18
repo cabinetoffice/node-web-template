@@ -1,8 +1,8 @@
-import { Express } from "express";
+import { Express } from 'express';
 
-import * as https from "https";
-import { readFileSync } from "fs";
-import * as config from "../config";
+import * as https from 'https';
+import { readFileSync } from 'fs';
+import * as config from '../config';
 
 export const createHttpsServer = (app: Express) => {
     const options = {
@@ -11,4 +11,3 @@ export const createHttpsServer = (app: Express) => {
     };
     return https.createServer(options, app);
 };
-
