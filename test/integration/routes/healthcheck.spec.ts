@@ -14,13 +14,12 @@ const mockedLogger = logger as jest.Mock<typeof logger>;
 mockedLogger.mockImplementation((req: Request, res: Response, next: NextFunction) => next());
 
 describe('Healthcheck endpoint integration tests', () => {
-
     beforeEach(() => {
         jest.clearAllMocks();
     });
 
     describe('GET tests', () => {
-        test("response with 200 OK", async () => {
+        test('response with 200 OK', async () => {
             const res = await request(app).get(config.HEALTHCHECK_URL);
 
             expect(res.status).toEqual(200);

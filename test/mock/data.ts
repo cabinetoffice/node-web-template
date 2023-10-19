@@ -1,4 +1,4 @@
-import * as config from "../../src/config";
+import * as config from '../../src/config';
 
 export const GET_REQUEST_MOCK = { method: 'GET', route: { path: '/test' } };
 
@@ -17,21 +17,14 @@ export const MOCK_HELMET_VALUE = {
         directives: {
             defaultSrc: ["'self'"],
             fontSrc: ["'self'"],
-            styleSrc: [
-                "'self'",
-                config.CDN_HOST
-            ],
+            styleSrc: ["'self'", config.CDN_HOST],
             scriptSrc: [
                 "'self'",
                 "'sha256-l1eTVSK8DTnK8+yloud7wZUqFrI0atVo6VlC6PJvYaQ='",
                 "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='",
                 config.CDN_HOST
             ],
-            imgSrc: [
-                "'self'",
-                "data:",
-                config.CDN_HOST
-            ],
+            imgSrc: ["'self'", 'data:', config.CDN_HOST],
             connectSrc: ["'self'"],
             formAction: ["'self'"],
             objectSrc: ["'none'"]

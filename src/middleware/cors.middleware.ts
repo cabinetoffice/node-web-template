@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response } from "express";
-import cors from "cors";
+import { NextFunction, Request, Response } from 'express';
+import cors from 'cors';
 
-import * as config from "../config";
+import * as config from '../config';
 
 export const setCors = (_req: Request, _res: Response, next: NextFunction) => {
     cors({

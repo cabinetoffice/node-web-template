@@ -1,6 +1,6 @@
 import * as config from '../config';
 
-export const onError = (error: any ) => {
+export const onError = (error: any) => {
     if (error.syscall !== 'listen') {
         throw error;
     }
