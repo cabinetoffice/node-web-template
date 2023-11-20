@@ -1,8 +1,8 @@
-# Node POC Prototype
+# Node Webapp Template
 
 ## Overview
 
-The following prototype will allow us to quickly bootstrap Node projects in the future, this allows us to ensure consistency across our Node repositories. It can be a starting point for the creation of RESTfull API ​or for the creation of web application with GDS GovUK frontend best practice.
+The following repo allows us to quickly bootstrap Node projects, using this allows us to ensure consistency across our Node repositories. It can be a starting point for the creation of RESTfull API ​or for the creation of web application with GDS GovUK frontend best practice.
 
 In the context of a web application, each page or user interface, defined by an endpoint, is devided into three components (MVC) and as a best practice the names for the model, view and controller have, when possible, the same start name of the endpoints (es. for the `/info` page we have the: `info.controller.ts` and `info.html` files if model present we will have had `info.model.ts`)
 
@@ -58,5 +58,4 @@ We use ESlint as both a formatter and code quality assurance, while using Pretti
 - Add Validation and Navigation MW
 - Add Authentication MW and Session handler logic
 - Update CDN origin
-- Create Repo template
 - Publishes the SDK on npm package registry
