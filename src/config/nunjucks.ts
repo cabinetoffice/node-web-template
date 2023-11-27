@@ -1,10 +1,11 @@
 import express from 'express';
 import * as nunjucks from 'nunjucks';
 
+import { log } from '../utils/logger';
 import * as config from '../config';
 
 export const configureNunjucks = (app: express.Application, viewsPath: string) => {
-    console.log(`Set nunjucks configurations and where nunjucks templates should resolve to: ${viewsPath}`);
+    log.info(`Set nunjucks configurations and where nunjucks templates should resolve to: ${viewsPath}`);
 
     const nunjucksEnv = nunjucks.configure(
         [viewsPath, 'node_modules/govuk-frontend', 'node_modules/govuk-frontend/components'],
