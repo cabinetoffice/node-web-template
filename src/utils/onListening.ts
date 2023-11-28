@@ -1,5 +1,6 @@
 import * as config from '../config';
+import { log } from './logger';
 
 export const onListening = () => {
-    console.log(`Listening on ${config.PORT}, from ${config.BASE_URL}`);
+    log.info(`Listening on ${config.PORT}, from ${config.BASE_URL}`);
 };
