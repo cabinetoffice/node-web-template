@@ -1,17 +1,16 @@
-import { describe, beforeEach, afterEach, expect, test, jest } from '@jest/globals';
+import { describe, afterEach, expect, test, jest } from '@jest/globals';
 
 import * as config from '../../../src/config';
+import { log } from '../../../src/utils/logger';
 import { onListening } from '../../../src/utils/onListening';
 
-const spyConsoleLog = jest.spyOn(console, 'log');
+jest.mock('../../../src/utils/logger', () => ({
+    log: {
+        info: jest.fn()
+    }
+}));
 
 describe('On listening test', () => {
-    beforeEach(() => {
-        spyConsoleLog.mockImplementation(() => {
-            /**/
-        });
-    });
-
     afterEach(() => {
         jest.resetAllMocks();
     });
@@ -21,7 +20,7 @@ describe('On listening test', () => {
 
         onListening();
 
-        expect(spyConsoleLog).toBeCalledTimes(1);
-        expect(spyConsoleLog).toHaveBeenCalledWith(listeningLog);
+        expect(log.info).toBeCalledTimes(1);
+        expect(log.info).toHaveBeenCalledWith(listeningLog);
     });
 });

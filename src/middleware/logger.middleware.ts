@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
+import { log } from '../utils/logger';
 
 export const logger = (req: Request, _res: Response, next: NextFunction) => {
-    console.log(`${req.method} ${req.path}`);
+    log.infoRequest(req, `${req.method} ${req.path}`);
     next();
 };

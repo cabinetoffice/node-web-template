@@ -14,3 +14,5 @@ services:
       - CDN_HOST=${CDN_HOST}
       - NODE_SSL_ENABLED=${NODE_SSL_ENABLED}
       - BASE_URL=${BASE_URL}
+      - HUMAN=${HUMAN}
+      - LOG_LEVEL=${LOG_LEVEL}
