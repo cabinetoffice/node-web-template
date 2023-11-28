@@ -1,6 +1,5 @@
 module.exports = {
     roots: ['<rootDir>/src', '<rootDir>/test'],
-    setupFiles: ['./test/env.ts'],
     testPathIgnorePatterns: ['/node_modules/', '/dist/'],
     collectCoverageFrom: ['./src/**/*.ts'],
     coveragePathIgnorePatterns: ['/src/server.ts'],
