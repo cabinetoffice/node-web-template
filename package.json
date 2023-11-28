@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc && cp -r src/views dist/",
-    "start": "node --env-file=.env dist/server.js",
+    "start": "node dist/server.js",
     "test": "jest",
     "coverage": "jest --coverage",
     "lint": "eslint '{src,test}/**/*.ts'",
