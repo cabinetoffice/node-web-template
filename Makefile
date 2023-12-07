@@ -12,6 +12,14 @@ build:
 	npm ci --silent
 	npm run build
 
+docker-build:
+	$(info docker build starting)
+	docker compose -f docker-compose.yml build
+
+docker-up:
+	$(info webapp starting)
+	docker compose -f docker-compose.yml up
+
 lint:
 	npm run lint
 
