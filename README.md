@@ -64,13 +64,8 @@ Make sure you have Docker installed on your machine. If not, you can download an
     docker-compose up --build
 
 This will then download the necessary dependencies, build the Docker image, and start the application.
-You will be able to access it on [Localhost:3000](localhost:3000)
-To build the Docker image, run the following command in the root directory of your project:
+You will be able to access it on [Localhost:3000](localhost:3000) .
 
-### Stopping the Application
-To stop the application, use the following command:
-
-docker-compose down
 
 ## ToDo
 
