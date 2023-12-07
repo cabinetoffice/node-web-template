@@ -51,6 +51,27 @@ We use ESlint as both a formatter and code quality assurance, while using Pretti
 4. Click the checkbox under: `Format on Save`.
 5. Reload VScode.
 
+
+## Docker Infrastructure
+
+### Prerequisites
+
+Make sure you have Docker installed on your machine. If not, you can download and install it from [Docker's official website](https://www.docker.com/get-started).
+
+### Building the Docker Image
+ Thent to run:
+
+    docker-compose up --build
+
+This will then download the necessary dependencies, build the Docker image, and start the application.
+You will be able to access it on [Localhost:3000](localhost:3000)
+To build the Docker image, run the following command in the root directory of your project:
+
+### Stopping the Application
+To stop the application, use the following command:
+
+docker-compose down
+
 ## ToDo
 
 - Add API service module
