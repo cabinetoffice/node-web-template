@@ -52,16 +52,23 @@ We use ESlint as both a formatter and code quality assurance, while using Pretti
 5. Reload VScode.
 
 
-## Docker Infrastructure
+## Launching the web-app
 
 ### Prerequisites
 
-Make sure you have Docker installed on your machine. If not, you can download and install it from [Docker's official website](https://www.docker.com/get-started).
+1.Install [NodeJS V20.8](https://nodejs.org/en) .
+
+2.Install Docker[Docker's official website](https://www.docker.com/get-started) .
 
 ### Building the Docker Image
- Thent to run:
 
-    docker-compose up --build
+1.Create a copy of the .env.example file and name it .env:
+
+ Then to run:
+
+    make docker-build
+
+    make docker-up
 
 This will then download the necessary dependencies, build the Docker image, and start the application.
 You will be able to access it on [Localhost:3000](localhost:3000) .
