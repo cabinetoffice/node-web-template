@@ -1,4 +1,4 @@
-.PHONY: clean build lint test coverage
+.PHONY: clean build lint test coverage docker-up docker-build
 
 NODE_VERSION_SUPPORTED := >=20.0.0
 NODE_VERSION=$(shell node -v)
