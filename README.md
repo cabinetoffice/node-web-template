@@ -41,15 +41,15 @@ Directory Path | Description
 `./docs` | Contains documentation files
 Others files | Other files related to modules dependency, CI/CD, *git, dockerization, lint, test/typescript configs …
 
-## ESlint and Prettier
+## ESlint
 
-We use ESlint as both a formatter and code quality assurance, while using Prettier to apply formatting on save. To setup format on save, do the following
+We use ESlint as both a formatter and code quality assurance. Eslint can also be setup to format on save using a VScode extension:
 
-1. Install the [Prettier VScode extenstion](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
-2. Open your user settings inside VScode and search for: format
-3. Select your Default Formatter as: `Prettier - Code formatter`.
-4. Click the checkbox under: `Format on Save`.
-5. Reload VScode.
+1. Install the [ESlint VScode extenstion](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+2. Open your user settings (JSON) inside VScode and add the following:
+    "editor.formatOnSave": true, 
+    "editor.codeActionsOnSave": { "source.fixAll.eslint": true }
+3. Reload VScode.
 
 
 ## Launching the web-app
