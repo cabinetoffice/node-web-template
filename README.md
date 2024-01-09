@@ -1,4 +1,5 @@
 # Node Webapp Template
+![Static Badge](https://img.shields.io/badge/test_coverage-%E2%89%A595%25-green)
 
 ## Overview
 
