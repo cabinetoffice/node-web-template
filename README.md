@@ -52,6 +52,11 @@ We use ESlint as both a formatter and code quality assurance. Eslint can also be
     "editor.codeActionsOnSave": { "source.fixAll.eslint": true }
 3. Reload VScode.
 
+## Running local development environment with Docker
+
+Docker is used run the application in development mode, with tooling setup to detect changes in local `src` directory and reload the container's node server.
+
+Follow the steps in [Launching-the-web-app](#Launching-the-web-app), and ensure that `NODE_ENV=development` is set in the `.env` file.
 
 ## Launching the web-app
 
