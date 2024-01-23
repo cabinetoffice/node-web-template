@@ -6,8 +6,6 @@ describe('log tests', () => {
     test('Should test the log object is defined of type ApplicationLogger', () => {
         expect(log).toBeDefined();
         expect(log).toBeInstanceOf(ApplicationLogger);
-
     });
-
 });
 
