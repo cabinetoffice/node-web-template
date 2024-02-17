@@ -87,4 +87,3 @@ You will be able to access it on [localhost:3000](localhost:3000).
 - Add Validation and Navigation MW
 - Add Authentication MW and Session handler logic
 - Update CDN origin
-- Publishes the SDK on npm package registry
