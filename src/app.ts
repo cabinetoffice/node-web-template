@@ -10,6 +10,7 @@ import { configureCors } from './config/cors';
 import { errorHandler, errorNotFound } from './controller/error.controller';
 
 import { setNonce } from './middleware/nonce.middleware';
+import { configureRateLimit } from './config/rate-limit';
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(cookieParser());
 app.use(setNonce);
 configureHelmet(app);
 configureCors(app);
+configureRateLimit(app);
 
 const viewPath = path.join(__dirname, 'views');
 configureNunjucks(app, viewPath);
