@@ -2,7 +2,7 @@ import { getEnvironmentValue } from '../utils/getEnvironmentValue';
 
 export const PORT = getEnvironmentValue('PORT', '3000');
 export const BASE_URL = getEnvironmentValue('BASE_URL', `http://localhost:${PORT}`);
-export const CDN_HOST = getEnvironmentValue('CDN_HOST', 'd6nh3dxv55e16.cloudfront.net');
+export const CDN_HOST = getEnvironmentValue('CDN_HOST');
 export const NODE_SSL_ENABLED = getEnvironmentValue('NODE_SSL_ENABLED', 'false');
 
 export const PATH_SSL_PRIVATE_KEY = getEnvironmentValue('PATH_SSL_PRIVATE_KEY', 'false');
