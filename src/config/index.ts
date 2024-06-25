@@ -17,7 +17,12 @@ export const ERROR_PAGE = 'error';
 
 // Routing paths
 export const LANDING_URL = '/info';
+export const ROOT_URL = '/';
 
 export const INFO_URL = '/info';
 export const HEALTHCHECK_URL = '/healthcheck';
 export const SERVICE_URL = `${BASE_URL}${LANDING_URL}`;
+
+// MISC
+export const ID = 'id';
+export const PARAM_ID = `/:${ID}`;
