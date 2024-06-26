@@ -5,13 +5,15 @@ import express from 'express';
 
 export const GET_REQUEST_MOCK = { method: 'GET', path: '/test' };
 
+export const MOCK_POST_INFO = { test: 'test' };
+
 export const MOCK_CORS_VALUE = {
     origin: [config.CDN_HOST, config.BASE_URL],
-    credentials: true
+    credentials: true,
 };
 
 export const MOCK_ERROR = {
-    message: 'Error message'
+    message: 'Error message',
 } as Error;
 
 export const MOCK_HELMET_VALUE = {
@@ -25,15 +27,15 @@ export const MOCK_HELMET_VALUE = {
                 "'self'",
                 "'sha256-l1eTVSK8DTnK8+yloud7wZUqFrI0atVo6VlC6PJvYaQ='",
                 "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='",
-                config.CDN_HOST
+                config.CDN_HOST,
             ],
             imgSrc: ["'self'", 'data:', config.CDN_HOST],
             connectSrc: ["'self'"],
             formAction: ["'self'"],
-            objectSrc: ["'none'"]
+            objectSrc: ["'none'"],
         },
-        reportOnly: false
-    }
+        reportOnly: false,
+    },
 };
 
 export const MOCK_RATE_LIMIT_VALUE = {
@@ -41,9 +43,9 @@ export const MOCK_RATE_LIMIT_VALUE = {
     limit: 100,
     standardHeaders: 'draft-7',
     legacyHeaders: false,
-    handler: expect.any(Function)
+    handler: expect.any(Function),
 };
 
 export const MOCK_EXPRESS_APP = {
-    use: jest.fn()
+    use: jest.fn(),
 } as unknown as express.Application;
