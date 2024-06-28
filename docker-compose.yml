@@ -7,12 +7,16 @@ services:
       dockerfile: ./infrastructure/docker/${NODE_ENV}/Dockerfile
     ports:
       - "${PORT}:3000"
-    environment:
-      - NODE_ENV=${NODE_ENV}
-      - PATH_SSL_PRIVATE_KEY=${PATH_SSL_PRIVATE_KEY}
-      - PATH_SSL_CERTIFICATE=${PATH_SSL_CERTIFICATE}
-      - CDN_HOST=${CDN_HOST}
-      - NODE_SSL_ENABLED=${NODE_SSL_ENABLED}
+    volumes:
+      - ./:/app
+    environment: 
       - BASE_URL=${BASE_URL}
+      - CDN_HOST=${CDN_HOST}
+      - FEATURE_FLAG_ENABLE_AUTH=${FEATURE_FLAG_ENABLE_AUTH}
       - HUMAN=${HUMAN}
       - LOG_LEVEL=${LOG_LEVEL}
+      - NODE_ENV=${NODE_ENV}     
+      - NODE_SSL_ENABLED=${NODE_SSL_ENABLED}
+      - PATH_SSL_CERTIFICATE=${PATH_SSL_CERTIFICATE}
+      - PATH_SSL_PRIVATE_KEY=${PATH_SSL_PRIVATE_KEY}
+     
