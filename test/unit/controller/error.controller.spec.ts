@@ -1,15 +1,25 @@
-import { describe, beforeEach, afterEach, expect, test, jest } from '@jest/globals';
+import {
+    describe,
+    beforeEach,
+    afterEach,
+    expect,
+    test,
+    jest,
+} from '@jest/globals';
 import { Request, Response, NextFunction } from 'express';
 
-import { errorNotFound, errorHandler } from '../../../src/controller/error.controller';
+import {
+    errorNotFound,
+    errorHandler,
+} from '../../../src/controller/error.controller';
 import * as config from '../../../src/config';
 import { MOCK_ERROR } from '../../mock/data';
 import { log } from '../../../src/utils/logger';
 
 jest.mock('../../../src/utils/logger', () => ({
     log: {
-        error: jest.fn()
-    }
+        error: jest.fn(),
+    },
 }));
 
 const req = {} as Request;
@@ -83,7 +93,8 @@ describe('Error controller tests', () => {
         test('should log alternate error message', () => {
             const res = mockResponse();
             MOCK_ERROR.message = '';
-            const errorLogMessage = 'Error 500: An error has occured. Re-routing to the error screen';
+            const errorLogMessage =
+				'Error 500: An error has occurred. Re-routing to the error screen';
 
             errorHandler(MOCK_ERROR, req, res, next);
 

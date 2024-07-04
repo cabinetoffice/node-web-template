@@ -4,6 +4,7 @@ import * as config from '../../src/config';
 import express from 'express';
 
 export const GET_REQUEST_MOCK = { method: 'GET', path: '/test' };
+export const MOCK_POST_VALIDATION_TEST = { first_name: 'example', description: 'description' };
 
 export const MOCK_POST_INFO = { test: 'test' };
 
