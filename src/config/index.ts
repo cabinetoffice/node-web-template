@@ -4,9 +4,11 @@ export const PORT = getEnvironmentValue('PORT', '3000');
 export const BASE_URL = getEnvironmentValue('BASE_URL', `http://localhost:${PORT}`);
 export const CDN_HOST = getEnvironmentValue('CDN_HOST');
 export const NODE_SSL_ENABLED = getEnvironmentValue('NODE_SSL_ENABLED', 'false');
+export const SESSION_APP_KEY = getEnvironmentValue('SESSION_APP_KEY');
 
 export const PATH_SSL_PRIVATE_KEY = getEnvironmentValue('PATH_SSL_PRIVATE_KEY', 'false');
 export const PATH_SSL_CERTIFICATE = getEnvironmentValue('PATH_SSL_CERTIFICATE', 'false');
+export const NODE_ENV = getEnvironmentValue('NODE_ENV');
 
 export const SERVICE_NAME = 'Node Prototype';
 
