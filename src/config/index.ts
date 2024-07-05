@@ -32,9 +32,3 @@ export const FEATURE_FLAG_ENABLE_AUTH = getEnvironmentValue(
 export const ID = 'id';
 export const PARAM_ID = `/:${ID}`;
 
-// export function VALIDATION_TEST(_VALIDATION_TEST: any) {
-//     throw new Error('Function not implemented.');
-// }
-// export function VALIDATION_TEST_URL(VALIDATION_TEST_URL: any, authentication: any, get: any) {
-// 	throw new Error('Function not implemented.');
-// }
