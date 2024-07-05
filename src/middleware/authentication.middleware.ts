@@ -10,10 +10,6 @@ export const authentication = (
     next: NextFunction
 ) => {
     try {
-        if (!process.env.SESSION_APP_KEY) {
-            throw new Error('SESSION_APP_KEY environment variable is not set.');
-        }
-
         if (config.NODE_ENV === 'production') {
             log.infoRequest(req, 'Authenticating through COLA...');
             return colaAuthenticationMiddleware(req, res, next);
@@ -21,10 +17,8 @@ export const authentication = (
 
         log.infoRequest(req, 'sorry, auth service not available right now');
         next();
-
     } catch (err: any) {
         log.errorRequest(req, err.message);
         next(err);
     }
 };
-
