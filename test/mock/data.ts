@@ -4,6 +4,9 @@ import * as config from '../../src/config';
 import express from 'express';
 
 export const GET_REQUEST_MOCK = { method: 'GET', path: '/test' };
+export const MOCK_POST_VALIDATION_TEST = { first_name: 'example' };
+
+export const MOCK_POST_INFO = { test: 'test' };
 
 export const MOCK_CORS_VALUE = {
     origin: [config.CDN_HOST, config.BASE_URL],
