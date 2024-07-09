@@ -28,7 +28,6 @@ Directory Path | Description
 `./.husky` | Add pre check script, includes `pre-commit` and `pre-push` checks
 `./src` | Contains all TypeScript code
 `./src/app.ts` | Application entry point
-`./src/bin/www.ts` | Server configuration
 `./src/config/index.ts` | Contains all the application's configurations
 `./src/controller` | Business logic and handlers
 `./src/middleware` | Middleware functions (Authentication, validation ...)
@@ -41,6 +40,31 @@ Directory Path | Description
 `./view` | Contains all the html nunjucks structure files
 `./docs` | Contains documentation files
 Others files | Other files related to modules dependency, CI/CD, *git, dockerization, lint, test/typescript configs …
+
+
+### Config variables
+
+Some config variables relate to authentication, refer to [node-login](https://github.com/cabinetoffice/node-login) for more details about how these variables are used.
+
+| Key                         | Description                                                         | Example Value                                                      |
+|-----------------------------|---------------------------------------------------------------------|--------------------------------------------------------------------|
+| AUTH_SIGN_IN_URL            | Authentication sign in URL                                          | `https://cola.service.cabinetoffice.gov.uk/v2/<YOUR_SERVICE>/login`|
+| BASE_URL                    | Base application URL                                                | `http://localhost:3000` (dev mode)                                 |
+| CDN_HOST                    | CDN host                                                            | `cdn_domain`                                                       |
+| COOKIE_ID_NAME              | The name of the COLA authentication cookie                          | `github-requests`                                                  |
+| COOKIE_PARSER_SECRET        | Secret used in validating/calculating the cookie signature          | `secret`                                                           |
+| COOKIE_SESSION_SECRET       | Secret key for signing the session cookie                           | `secret`                                                           |
+| HUMAN                       | Formatting messages form (default JSON)                             | `true` (Enable human formatting for log messages)                  |
+| LOG_LEVEL                   | Logging levels                                                      | `info`                                                             |
+| NODE_ENV                    | Node environment                                                    | `development` or `production`                                      |
+| NODE_SSL_ENABLED            | Node SSL                                                            | `true` or `false`                                                  |
+| PATH_SSL_CERTIFICATE        | Path to SSL certificate                                             | `./infrastructure/host/test.cert`                                  |
+| PATH_SSL_PRIVATE_KEY        | Path to SSL private key                                             | `./infrastructure/host/test.key`                                   |
+| PORT                        | Server port number                                                  | `3000`                                                             |
+| SESSION_APP_KEY             | Session application key                                             | `git`                                                              |
+| SESSION_ID_NAME             | Session ID name                                                     | `connect.sid`                                                      |
+| USER_POOL_CLIENT_ID         | Client ID of an app registered with the user pool in Amazon Cognito | `secret`                                                           |
+| USER_POOL_ID                | ID of the user pool in Amazon Cognito                               | `secret`                                                           |
 
 ## ESlint
 
