@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@co-digital/logging": "^1.0.1",
+    "@co-digital/login": "^1.0.4",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
