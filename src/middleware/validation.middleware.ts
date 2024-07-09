@@ -3,6 +3,7 @@ import { validationResult, FieldValidationError } from 'express-validator';
 
 import { log } from '../utils/logger';
 import { FormattedValidationErrors } from '../model/validation.model';
+import { validateFilepath } from '../utils/validateFilepath';
 
 export const checkValidations = (
     req: Request,
@@ -13,7 +14,8 @@ export const checkValidations = (
         const errorList = validationResult(req);
 
         if (!errorList.isEmpty()) {
-            const template_path = req.path.substring(1);
+            const validatedFilepath = validateFilepath(req.path);
+            const template_path = validatedFilepath.substring(1);
             const errors = formatValidationError(
 				errorList.array() as FieldValidationError[]
             );

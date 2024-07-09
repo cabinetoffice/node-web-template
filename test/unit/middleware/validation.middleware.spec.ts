@@ -19,8 +19,10 @@ import { checkValidations } from '../../../src/middleware/validation.middleware'
 import { ErrorMessages } from '../../../src/validation/error.messages';
 import { MOCK_ERROR, MOCK_POST_VALIDATION_TEST } from '../../mock/data';
 import { log } from '../../../src/utils/logger';
+import { validateFilepath } from '../../../src/utils/validateFilepath';
 
 const validationResultMock = validationResult as unknown as jest.Mock;
+const validateFilepathMock = validateFilepath as jest.Mock<typeof validateFilepath>;
 const logInfoMock = log.info as jest.Mock;
 const logErrorMock = log.error as jest.Mock;
 
@@ -69,6 +71,7 @@ describe('Validation Middleware test suites', () => {
             };
         });
         req.body[fieldKey] = '';
+        validateFilepathMock.mockImplementationOnce(() => config.VALIDATION_TEST_URL);
         checkValidations(req, res, next);
 
         expect(logInfoMock).toHaveBeenCalledTimes(1);
