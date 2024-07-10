@@ -1,0 +1,45 @@
+name: Push the Docker image to AWS ECR Repo on new Release
+  on:
+    release:
+      types: [published]
+
+  permissions:
+    contents: read
+
+  jobs:
+    docker:
+      name: Build
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        - name: Configure AWS Credentials
+          uses: aws-actions/configure-aws-credentials@v2
+          with:
+            role-to-assume: arn:aws:iam::${{ inputs.aws_account_id }}:role/github-actions-rmodi
+            aws-region: ${{ inputs.aws_region }}
+
+        - name: Login to Amazon ECR
+          id: login-ecr
+          uses: aws-actions/amazon-ecr-login@v1
+          with:
+            registries: ${{ inputs.aws_account_id }}
+            mask-password: "true" # see: https://github.com/aws-actions/amazon-ecr-login#docker-credentials
+
+        - name: Set RELEASE_VERSION to Github env
+          run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+        - name: Build, tag, and push image to Amazon ECR
+          id: build-publish
+          shell: bash
+          env:
+            ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+            ECR_REPOSITORY: ${{ inputs.ECR_REPO_NAME }}
+            IMAGE_TAG: ${{ env.RELEASE_VERSION }}
+          run: |
+            docker build "${{ inputs.docker_build_dir }}" -f "${{ inputs.path_to_dockerfile }}" -t "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+            docker push "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+            echo "IMAGE $IMAGE_TAG is pushed to $ECR_REGISTRY/$ECR_REPOSITORY"
+            echo "image_tag=$IMAGE_TAG" 
+            echo "full_image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
