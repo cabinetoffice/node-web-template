@@ -14,10 +14,12 @@ export const SERVICE_NAME = 'Node Prototype';
 export const LANDING_PAGE = 'info';
 export const NOT_FOUND = 'page-not-found';
 export const ERROR_PAGE = 'error';
+export const VALIDATION_TEST = 'validation-test';
 
 // Routing paths
+export const ROOT_URL = '/';
 export const LANDING_URL = '/info';
-
 export const INFO_URL = '/info';
+export const VALIDATION_TEST_URL = '/validation-test';
 export const HEALTHCHECK_URL = '/healthcheck';
 export const SERVICE_URL = `${BASE_URL}${LANDING_URL}`;

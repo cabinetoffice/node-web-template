@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Validation Test</h1>
+
+      <p class="govuk-body">Submit field empty to test validation functionality.</p>
+
+      {% include "include/error-list.html" %}
+
+      <form method="post">
+
+        {{ govukInput({
+          errorMessage: errors.first_name if errors,
+          label: {
+            text: "First Name",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-input--width-10",
+          id: "first_name",
+          name: "first_name",
+          value: first_name
+        }) }}
+
+        {{ govukButton({
+          text: "Submit",
+          attributes: {
+              "id": "submit"
+          }
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

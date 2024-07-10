@@ -2,7 +2,11 @@
 
 {% from "govuk/components/footer/macro.njk"           import govukFooter %}
 {% from "govuk/components/header/macro.njk"           import govukHeader %}
-
+{% from "govuk/components/error-summary/macro.njk"    import govukErrorSummary %}
+{% from "govuk/components/back-link/macro.njk"        import govukBackLink %}
+{% from "govuk/components/input/macro.njk"            import govukInput %}
+{% from "govuk/components/textarea/macro.njk"         import govukTextarea %}
+{% from "govuk/components/button/macro.njk"           import govukButton %}
 {% block head %}
 
   <link rel="stylesheet" type="text/css" media="all" href="//{{CDN_HOST}}/stylesheets/govuk-frontend/v4.6.0/govuk-frontend-4.6.0.min.css">
@@ -21,6 +25,10 @@
     containerClasses: "govuk-width-container"
   }) }}
 {% endblock %}
+
+{% block content %}
+{% endblock %}
+
 
 {% block footer %}
     {{ govukFooter({

@@ -7,3 +7,6 @@ export const MOCK_SERVER_ERROR = 'Pipe 3000 requires elevated privileges';
 export const MOCK_ERROR_MESSAGE = 'Something has went wrong';
 export const MOCK_WRONG_URL = '/infooo';
 export const MOCK_VIEWS_PATH = '/path/to/views';
+export const MOCK_REDIRECT_MESSAGE = 'Found. Redirecting to info';
+export const MOCK_GET_VALIDATION_TEST_RESPONSE = 'Submit field empty to test validation functionality.';
+export const MOCK_POST_VALIDATION_TEST_RESPONSE = 'First Name: example';

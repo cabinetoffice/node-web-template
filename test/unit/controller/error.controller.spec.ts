@@ -83,7 +83,8 @@ describe('Error controller tests', () => {
         test('should log alternate error message', () => {
             const res = mockResponse();
             MOCK_ERROR.message = '';
-            const errorLogMessage = 'Error 500: An error has occured. Re-routing to the error screen';
+            const errorLogMessage =
+				'Error 500: An error has occurred. Re-routing to the error screen';
 
             errorHandler(MOCK_ERROR, req, res, next);
 
