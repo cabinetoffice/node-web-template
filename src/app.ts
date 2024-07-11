@@ -1,5 +1,6 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
+import cookieSession from 'cookie-session';
 import path from 'path';
 
 import router from './routes/index';
@@ -11,6 +12,7 @@ import { errorHandler, errorNotFound } from './controller/error.controller';
 
 import { setNonce } from './middleware/nonce.middleware';
 import { configureRateLimit } from './config/rate-limit';
+import { COOKIE_PARSER_SECRET, COOKIE_SESSION_SECRET } from './config/index';
 
 const app = express();
 
@@ -18,7 +20,9 @@ app.disable('x-powered-by');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+
+app.use(cookieParser(COOKIE_PARSER_SECRET));
+app.use(cookieSession({ secret: COOKIE_SESSION_SECRET }));
 
 app.use(setNonce);
 configureHelmet(app);

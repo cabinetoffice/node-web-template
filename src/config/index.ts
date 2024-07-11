@@ -4,6 +4,10 @@ export const PORT = getEnvironmentValue('PORT', '3000');
 export const BASE_URL = getEnvironmentValue('BASE_URL', `http://localhost:${PORT}`);
 export const CDN_HOST = getEnvironmentValue('CDN_HOST');
 export const NODE_SSL_ENABLED = getEnvironmentValue('NODE_SSL_ENABLED', 'false');
+export const NODE_ENV = getEnvironmentValue('NODE_ENV');
+
+export const COOKIE_PARSER_SECRET = getEnvironmentValue('COOKIE_PARSER_SECRET');
+export const COOKIE_SESSION_SECRET = getEnvironmentValue('COOKIE_SESSION_SECRET');
 
 export const PATH_SSL_PRIVATE_KEY = getEnvironmentValue('PATH_SSL_PRIVATE_KEY', 'false');
 export const PATH_SSL_CERTIFICATE = getEnvironmentValue('PATH_SSL_CERTIFICATE', 'false');
