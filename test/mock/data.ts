@@ -22,12 +22,12 @@ export const MOCK_HELMET_VALUE = {
         useDefaults: true,
         directives: {
             defaultSrc: ["'self'"],
-            fontSrc: ["'self'"],
+            fontSrc: ["'self'", config.CDN_HOST],
             styleSrc: ["'self'", config.CDN_HOST],
             scriptSrc: [
                 "'self'",
-                "'sha256-l1eTVSK8DTnK8+yloud7wZUqFrI0atVo6VlC6PJvYaQ='",
-                "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='",
+                "'sha256-GUQ5ad8JK5KmEWmROf3LZd9ge94daqNvd8xy9YS1iDw='",
+                "'sha256-rDMP7u4Lf+tIufrYmUZIhcf2T3WBD4Pweu0EXe+qaLA='",
                 config.CDN_HOST
             ],
             imgSrc: ["'self'", 'data:', config.CDN_HOST],
